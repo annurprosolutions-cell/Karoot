@@ -112,7 +112,7 @@ export async function startHost(app) {
     $('#' + id).onchange = (e) => { settings[key] = e.target.checked; store.set(SETTINGS_KEY, settings); };
   }
   $('#btn-new-quiz').onclick = () => edit(null);
-  $('#btn-template').onclick = () => download('templat-kuiz-hafsah.csv', '﻿' + CSV_TEMPLATE, 'text/csv');
+  $('#btn-template').onclick = () => download('templat-kuiz-karooot.csv', '﻿' + CSV_TEMPLATE, 'text/csv');
   $('#btn-import').onclick = () => $('#import-file').click();
   $('#import-file').onchange = async (e) => {
     const file = e.target.files[0];

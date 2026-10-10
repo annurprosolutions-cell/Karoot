@@ -1,18 +1,18 @@
-# Kuiz Hafsah
+# Karooot
 
-Kuiz langsung gaya Kahoot untuk Kelas Mengaji Hafsah. Murid pilih dan reka karakter 3D gaya anime (termasuk tudung, kopiah, songkok, serban), main serentak dari telefon masing-masing, dan papan markah dikemas kini secara langsung.
+Karooot ialah kuiz langsung gaya Kahoot, asalnya dibina untuk Kelas Mengaji Hafsah. Murid pilih dan reka karakter 3D gaya anime (termasuk tudung, kopiah, songkok, serban), main serentak dari telefon masing-masing, dan papan markah dikemas kini secara langsung.
 
 ## Pautan
 
-Repo ini dihidangkan terus oleh GitHub Pages dari branch `main`:
+Laman rasmi: **https://karooot.netlify.app/**
 
-- Murid: `https://annurprosolutions-cell.github.io/Karoot/`
-- Cikgu (hos): butang **"Saya cikgu: hos permainan"** di halaman yang sama, atau terus `.../Karoot/?hos=1`
-- Penonton (papan markah sahaja): `.../Karoot/?tonton=PIN`
+- Murid: buka pautan di atas dan masukkan PIN
+- Cikgu (hos): butang **"Saya cikgu: hos permainan"**, atau terus `https://karooot.netlify.app/?hos=1`
+- Penonton (papan markah sahaja): `https://karooot.netlify.app/?tonton=PIN`
 
 Game ini dipindahkan dari folder `kuiz/` dalam repo `draftngajihafsah` (sejarah commit dikekalkan).
 
-### Hidupkan GitHub Pages (sekali sahaja)
+### Pilihan: hos di GitHub Pages
 
 1. Buka repo ini di GitHub, pergi ke **Settings → Pages**.
 2. Di bawah **Build and deployment**, pilih Source: **Deploy from a branch**.
