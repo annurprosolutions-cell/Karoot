@@ -4,11 +4,20 @@ Kuiz langsung gaya Kahoot untuk Kelas Mengaji Hafsah. Murid pilih dan reka karak
 
 ## Pautan
 
-Selepas branch ini di-merge ke `main`, GitHub Pages akan menghidangkan:
+Repo ini dihidangkan terus oleh GitHub Pages dari branch `main`:
 
-- Murid: `https://annurprosolutions-cell.github.io/draftngajihafsah/kuiz/`
-- Cikgu (hos): butang **"Saya cikgu: hos permainan"** di halaman yang sama, atau terus `.../kuiz/?hos=1`
-- Penonton (papan markah sahaja): `.../kuiz/?tonton=PIN`
+- Murid: `https://annurprosolutions-cell.github.io/Karoot/`
+- Cikgu (hos): butang **"Saya cikgu: hos permainan"** di halaman yang sama, atau terus `.../Karoot/?hos=1`
+- Penonton (papan markah sahaja): `.../Karoot/?tonton=PIN`
+
+Game ini dipindahkan dari folder `kuiz/` dalam repo `draftngajihafsah` (sejarah commit dikekalkan).
+
+### Hidupkan GitHub Pages (sekali sahaja)
+
+1. Buka repo ini di GitHub, pergi ke **Settings → Pages**.
+2. Di bawah **Build and deployment**, pilih Source: **Deploy from a branch**.
+3. Branch: **main**, folder: **/ (root)**, tekan **Save**.
+4. Tunggu 1-2 minit. Pautan sebenar dipaparkan di bahagian atas halaman Settings → Pages.
 
 ## Cara main
 
@@ -70,22 +79,21 @@ Soalan,Pilihan A,Pilihan B,Pilihan C,Pilihan D,Jawapan (A-D),Masa (saat)
 ## Struktur fail
 
 ```
-kuiz/
-  index.html          semua skrin (murid, hos, penonton)
-  css/kuiz.css        gaya
-  js/app.js           titik masuk & penghala
-  js/host.js          enjin permainan hos (markah, fasa, podium)
-  js/player.js        aliran telefon murid
-  js/watch.js         papan markah penonton
-  js/net.js           sambungan PeerJS (hos & klien, sambung semula automatik)
-  js/avatar3d.js      karakter 3D anime (Three.js)
-  js/stage3d.js       pentas lobi, podium, potret
-  js/avatar-config.js pilihan karakter & pengesahan data
-  js/creator.js       panel reka karakter
-  js/editor.js        penyunting kuiz
-  js/quizzes.js       set kuiz terbina dalam & import CSV
-  js/ui.js            pembantu DOM, bunyi, konfeti, QR
-  vendor/             Three.js r180, PeerJS 1.5.5, qrcode-generator (semua lesen MIT)
+index.html          semua skrin (murid, hos, penonton)
+css/kuiz.css        gaya
+js/app.js           titik masuk & penghala
+js/host.js          enjin permainan hos (markah, fasa, podium)
+js/player.js        aliran telefon murid
+js/watch.js         papan markah penonton
+js/net.js           sambungan PeerJS (hos & klien, sambung semula automatik)
+js/avatar3d.js      karakter 3D anime (Three.js)
+js/stage3d.js       pentas lobi, podium, potret
+js/avatar-config.js pilihan karakter & pengesahan data
+js/creator.js       panel reka karakter
+js/editor.js        penyunting kuiz
+js/quizzes.js       set kuiz terbina dalam & import CSV
+js/ui.js            pembantu DOM, bunyi, konfeti, QR
+vendor/             Three.js r180, PeerJS 1.5.5, qrcode-generator (semua lesen MIT)
 ```
 
 ## Ujian tempatan
@@ -93,5 +101,5 @@ kuiz/
 ```
 python3 -m http.server 8080        # dari folder repo
 npx peer --port 9000               # pelayan PeerJS tempatan (pilihan)
-# buka http://localhost:8080/kuiz/?hos=1&peer=localhost:9000
+# buka http://localhost:8080/?hos=1&peer=localhost:9000
 ```
