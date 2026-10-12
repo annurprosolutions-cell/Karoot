@@ -1,6 +1,6 @@
 # Karooot
 
-Karooot ialah kuiz langsung gaya Kahoot, asalnya dibina untuk Kelas Mengaji Hafsah. Murid pilih dan reka karakter 3D gaya anime (termasuk tudung, kopiah, songkok, serban), main serentak dari telefon masing-masing, dan papan markah dikemas kini secara langsung.
+Karooot ialah kuiz langsung gaya Kahoot. Murid pilih dan reka karakter 3D gaya anime (termasuk tudung, kopiah, songkok, serban), main serentak dari telefon masing-masing, dan papan markah dikemas kini secara langsung.
 
 ## Pautan
 
@@ -9,8 +9,6 @@ Laman rasmi: **https://karooot.netlify.app/**
 - Murid: buka pautan di atas dan masukkan PIN
 - Cikgu (hos): butang **"Saya cikgu: hos permainan"**, atau terus `https://karooot.netlify.app/?hos=1`
 - Penonton (papan markah sahaja): `https://karooot.netlify.app/?tonton=PIN`
-
-Game ini dipindahkan dari folder `kuiz/` dalam repo `draftngajihafsah` (sejarah commit dikekalkan).
 
 ### Pilihan: hos di GitHub Pages
 
