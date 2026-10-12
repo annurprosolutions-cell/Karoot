@@ -4,6 +4,7 @@ import { peerSupported } from './net.js';
 import { startPlayer } from './player.js';
 import { startHost } from './host.js';
 import { startWatch } from './watch.js';
+import { loadStats, renderStats } from './stats.js';
 
 export const app = {
   g3d: undefined,
@@ -75,6 +76,7 @@ function refreshMuteButtons() {
 
 function boot() {
   refreshMuteButtons();
+  loadStats().then((s) => renderStats($('#home-stats'), s));
   document.addEventListener('click', (e) => {
     const t = e.target.closest('[data-action]');
     sfx.unlock();

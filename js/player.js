@@ -4,6 +4,7 @@ import { ClientLink } from './net.js';
 import { sanitizeAvatar, randomAvatar, DEFAULT_AVATAR } from './avatar-config.js';
 import { mountCreator } from './creator.js';
 import { hasArabic } from './quizzes.js';
+import { track } from './stats.js';
 
 function buzz(pattern) {
   try {
@@ -103,6 +104,7 @@ export async function startPlayer(app, pin) {
         break;
       case 'welcome':
         joined = true;
+        track('users');
         sess = { pid: msg.pid, token: msg.token || (sess && sess.token), name: msg.name, avatar: sanitizeAvatar(msg.avatar) };
         store.sset(sessKey, sess);
         store.set('kh.profile', { name: msg.name, avatar: sess.avatar });

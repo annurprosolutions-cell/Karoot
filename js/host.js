@@ -5,6 +5,7 @@ import { HostLink } from './net.js';
 import { BUILTIN_QUIZZES, sanitizeQuiz, quizFromCSV, CSV_TEMPLATE, hasArabic } from './quizzes.js';
 import { sanitizeAvatar } from './avatar-config.js';
 import { openEditor } from './editor.js';
+import { track } from './stats.js';
 
 const SESSION_KEY = 'kh.hostSession';
 const QUIZZES_KEY = 'kh.quizzes';
@@ -506,6 +507,8 @@ class HostGame {
   // ------------------------------------------------------------ aliran soalan
   startGame() {
     if (!this.players.size) { toast('Belum ada pemain.', 'bad'); return; }
+    track('games');
+    track('users');
     sfx.start();
     if (this.app.stage) this.app.stage.unmount();
     this.qi = -1;

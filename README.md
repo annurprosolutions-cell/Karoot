@@ -45,6 +45,7 @@ Jangan tutup tab hos semasa permainan. Kalau ter-refresh, buka semula halaman ho
 - Penyunting kuiz: cipta soalan sendiri (2-4 pilihan atau Betul/Salah), masa 5-120 saat, teks Arab besar, gambar.
 - Import dari CSV (boleh sedia di Google Sheets, guna "Muat turun templat CSV") atau JSON; eksport JSON untuk dikongsi.
 - Masuk lewat, kunci bilik, kocok soalan, auto ke soalan seterusnya, bunyi (boleh dimatikan), skrin penuh.
+- Kaunter penggunaan di laman utama: bilangan paparan, orang yang dah cuba dan permainan yang dihoskan (tanpa nama atau data peribadi). Lihat bahagian **Statistik penggunaan**.
 
 ## Di mana data disimpan
 
@@ -59,6 +60,25 @@ Tiada pangkalan data dan tiada akaun. Semuanya berlaku dalam pelayar:
 | Nama & karakter murid | `localStorage` telefon murid (`kh.profile`) | Kekal di telefon itu |
 
 Telefon murid bersambung terus ke laptop cikgu melalui **WebRTC (peer-to-peer)** menggunakan pustaka PeerJS. Pelayan awam percuma **PeerJS Cloud** (`0.peerjs.com`) hanya digunakan untuk "memperkenalkan" dua pelayar semasa mula bersambung. Jika rangkaian menghalang sambungan terus, PeerJS akan guna pelayan relay (TURN) percuma mereka. Tiada data markah disimpan di pelayan tersebut.
+
+## Statistik penggunaan
+
+Laman utama memaparkan tiga kaunter sebagai bukti sosial:
+
+| Kaunter | Bila dikira |
+| --- | --- |
+| Paparan | Sekali setiap sesi tab (refresh tidak menambah) |
+| Orang dah cuba | Sekali seumur satu peranti, bila murid masuk permainan atau cikgu menekan Mula |
+| Permainan dihoskan | Setiap kali cikgu menekan **Mula** |
+
+Cara ia berfungsi:
+
+- Tiada pangkalan data sendiri. Setiap kejadian ialah satu permintaan "+1" ke servis kaunter awam percuma **Abacus** (`abacus.jasoncameron.dev`), namespace `karooot-netlify-app`. Tiada nama, PIN, markah atau karakter dihantar. Seperti mana-mana pelayan web, servis itu nampak alamat IP pelawat.
+- Jika servis gagal atau lambat (lebih 6 saat), kaunter disembunyikan dan permainan tidak terjejas.
+- Lihat nombor mentah terus: `https://abacus.jasoncameron.dev/get/karooot-netlify-app/views` (ganti `views` dengan `users` atau `games`).
+- Untuk elak kiraan sendiri, buka sekali `https://karooot.netlify.app/?nocount=1` pada pelayar anda. Guna `?nocount=0` untuk hidupkan semula. Localhost dan automasi pelayar (`navigator.webdriver`) tidak dikira.
+- Nilai tetap dalam `js/stats.js`: `NS` (namespace), `MIN_SHOW` (sembunyikan kaunter selagi nilainya kurang daripada ini, contoh `10`, supaya angka kecil tidak nampak lemah di awal).
+- Had: kaunter awam tanpa akaun boleh dinaikkan oleh sesiapa yang tahu URL-nya, jadi anggap ia petunjuk kasar, bukan angka audit.
 
 ## Had & tip
 
@@ -93,6 +113,7 @@ js/creator.js       panel reka karakter
 js/editor.js        penyunting kuiz
 js/quizzes.js       set kuiz terbina dalam & import CSV
 js/ui.js            pembantu DOM, bunyi, konfeti, QR
+js/stats.js         kaunter paparan / pengguna / permainan (Abacus)
 vendor/             Three.js r180, PeerJS 1.5.5, qrcode-generator (semua lesen MIT)
 ```
 
